@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  email-backup:
+    build: .
+    container_name: email-backup
+    env_file:
+      - ./config.env
+      - ./telegram.env
+      - ./account.env
+    volumes:
+      - ./eml_storage:/app/eml_storage
+    restart: unless-stopped
